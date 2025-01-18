@@ -8,6 +8,7 @@ import androidx.activity.enableEdgeToEdge
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
@@ -128,7 +129,33 @@ private fun CreateImageProfile(modifier: Modifier = Modifier) {
     }
 }
 
-@Preview(showBackground = true)
+@Preview
+@Composable
+fun Content() {
+    Box(
+        modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(5.dp)
+    ) {
+        Surface(modifier = Modifier
+            .fillMaxWidth()
+            .fillMaxHeight()
+            .padding(3.dp),
+            shape = RoundedCornerShape(corner = CornerSize(6.dp)),
+            border = BorderStroke(2.dp, Color.LightGray),
+        ) {
+            Portfolio(data = listOf("Project 1", "Project 2", "Project 3"))
+        }
+    }
+}
+
+@Composable
+fun Portfolio(data: List<String>) {
+    Text("Projects go here")
+}
+
+//@Preview(showBackground = true)
 @Composable
 fun GreetingPreview() {
     JetBizCardTheme {
